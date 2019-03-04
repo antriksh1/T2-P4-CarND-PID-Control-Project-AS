@@ -21,11 +21,25 @@ The goal of this project was to implement a simple PID Controller i.e. Proportio
 
 - Integral (I): This controls the error of the past values. As described in lectures, this is the intergral term, i.e. area between the true-path and the path-taken in the past. This controller tries to eliminate the residual cumulative error. 
 
-Having just an I controller resulted in a car which just drifted to one side and eventually started going in circles. This is the result of accumulation of error and therefore the steering correction eventually increasing.
+  Having just an I controller resulted in a car which just drifted to one side and eventually started going in circles. This is the result of accumulation of error and therefore the steering correction eventually increasing.
 
-Overall, it had the effect of controlling past errors.
+  Overall, it had the effect of limiting the oscillations from becoming larger i.e. preventing error accumulation.
+
+- Derivative (D): This controls the rate of change of error. As the error increases resulting in a higher input, it tries to increase its effect at trying to reduce it.
+
+  Having just a D controller also led vehicle to just drift along one side, and it continued to keep going in that direction, without going in circles. This can be explained by the fact that even though the error was increasing, the difference between the past and current error was not increasing. Therefore the same amount of control was applied, which kept the car just swaying in one direction. Eventually, it seemed like the car would start going in a very large circle because the control signal was being increased, but very very slowly.
+
+  The real insight for this controller was gained when it was run with a P controller i.e. when a P-D controller was run, and it was observed that the oscillations of the P controller were slower resulting in a smoother trajectory of the car.
+
+  Overall, it had the effect of smoothing the controller.
 
 ### Choosing the final hyperparameters
+
+  The final hyper-parameters were chosen by trial and error.
+  I started with the parameters in the lectures (0.2, 0.0004, 3.0)
+  After running the individual controllers, I quickly realized that my initial parameters were a bit aggressive, because my car was able to stay on the path, but it was touching the edges sometimes.
+  So I scaled the parameters down, especially Kp (for P controller), and eventually settled at: (0.18, 0.0002, 2.8)
+  
 
 ---
 
