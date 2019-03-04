@@ -45,6 +45,12 @@ class PID {
   double Kp;
   double Ki;
   double Kd;
+
+  // for differential
+  double prev_cte;
+
+  // for Integral - not needed - captured in i_error
+  // double int_cte;
 };
 
 #endif  // PID_H
