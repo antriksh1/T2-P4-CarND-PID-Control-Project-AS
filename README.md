@@ -10,8 +10,23 @@ The goal of this project was to implement a simple PID Controller i.e. Proportio
 ---
 
 ## Reflection:
-fasdf
 
+### Effects of each of the P, I, D components
+
+- Proportional (P): This controls the error proportional to the value of the error. Therefore it results in overshooting. By itself, it also seemed to be the most aggressive controller, because the higher the error, the more aggressive the steering, i.e. the more impactful it is to try to bring the car back to the center. 
+
+Having a just a P controller resulted in a constantly oscillating controller, because of overshooting.
+This overshooting led to more correction, which led to higher steering inputs, which in-turn led to higher over-shooting, and very quickly the oscillations rose to a very high degree. 
+
+Overall, it has the correctional effect in bringing the car back to its intended path.
+
+- Integral (I): This controls the error of the past values. As described in lectures, this is the intergral term, i.e. area between the true-path and the path-taken in the past. This controller tries to eliminate the residual cumulative error. 
+
+Having just an I controller resulted in a car which just drifted to one side and eventually started going in circles. This is the result of accumulation of error and therefore the steering correction eventually increasing.
+
+Overall, it had the effect of controlling past errors.
+
+### Choosing the final hyperparameters
 
 ---
 
