@@ -36,8 +36,11 @@ The goal of this project was to implement a simple PID Controller i.e. Proportio
 ### Choosing the final hyperparameters
 
   The final hyper-parameters were chosen by trial and error.
-  I started with the parameters in the lectures (0.2, 0.0004, 3.0) for (Kp, Ki, Kd)
+  
+  I started with the parameters in the lectures (0.2, 0.0004, 3.0) for (Kp, Ki, Kd).
+  
   After running the individual controllers, I quickly realized that my initial parameters were a bit aggressive, because my car was able to stay on the path, but it was touching the edges sometimes.
+  
   So I scaled the parameters down, especially Kp (for P controller), and eventually settled at: (0.18, 0.0002, 2.8) for (Kp, Ki, Kd).
   
 
